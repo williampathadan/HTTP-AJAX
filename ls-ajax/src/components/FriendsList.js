@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getFriends } from '../actions';
+import Friend from './Friend';
 
 class FriendsList extends Component {
     constructor() {
@@ -17,12 +18,7 @@ class FriendsList extends Component {
             <ul>
                 {this.props.friends.map((friend, i) => {
                     return (
-                        <li key={i}>
-                            <p>{`Friend ${i+1}`}</p>
-                            <p>{`Name: ${friend.name}`}</p>
-                            <p>{`Age: ${friend.age}`}</p>
-                            <p>{`Email: ${friend.email}`}</p>
-                        </li>
+                        <Friend key={i} index={i} friend={friend} />
                     );
                 })}
             </ul>

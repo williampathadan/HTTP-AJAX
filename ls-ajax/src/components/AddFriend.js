@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addFriend } from '../actions';
+import { addFriend, updateFriend, deleteFriend } from '../actions';
 
 class AddFriend extends Component {
     constructor() {
@@ -9,7 +9,8 @@ class AddFriend extends Component {
         this.state = {
             name: '',
             age: '',
-            email: ''
+            email: '',
+            index: ''
         };
     }
 
@@ -31,19 +32,58 @@ class AddFriend extends Component {
         });
     };
 
-    submitNewFriend = (e) => {
+    handleIndexChange = (e) => {
+        this.setState({
+            index: e.target.value
+        });
+    };
+
+    newFriend = (e) => {
         e.preventDefault();
         const newFriend = {
             name: this.state.name,
             age: this.state.age,
             email: this.state.email
         };
-
         this.props.dispatch(addFriend(newFriend));
         this.setState({
             name: '',
             age: '',
-            email: ''
+            email: '',
+            index: ''
+        });
+    };
+
+    updateFriend = (e) => {
+        e.preventDefault();
+        if (!this.state.index) {
+            return;
+        }
+        const data = {
+            index: parseInt(this.state.index),
+            update: {
+                name: this.state.name,
+                age: this.state.age,
+                email: this.state.email
+            }
+        };
+        this.props.dispatch(updateFriend(data));
+        this.setState({
+            name: '',
+            age: '',
+            email: '',
+            index: ''
+        }); 
+    };
+
+    deleteFriend = (e) => {
+        e.preventDefault();
+        this.props.dispatch(deleteFriend());
+        this.setState({
+            name: '',
+            age: '',
+            email: '',
+            index: ''
         });
     };
 
@@ -53,7 +93,10 @@ class AddFriend extends Component {
                 <input value={this.state.name} onChange={this.handleNameChange} placeholder="Name" />
                 <input value={this.state.age} onChange={this.handleAgeChange} placeholder="Age" />
                 <input value={this.state.email} onChange={this.handleEmailChange} placeholder="Email" />
-                <button onClick={this.submitNewFriend}>Submit</button>
+                <input value={this.state.index} onChange={this.handleIndexChange} placeholder="Index" />
+                <button onClick={this.newFriend}>Add</button>
+                <button onClick={this.updateFriend}>Update</button> 
+                <button onClick={this.deleteFriend}>Delete</button>
             </div>
         );
     }
