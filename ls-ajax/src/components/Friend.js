@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const Friend = ({ friend, index }) => {
     return (
-        <li key={index}>
+        <li>
             <p>{`Friend ${index+1}`}</p>
             <p>{`Name: ${friend.name}`}</p>
             <p>{`Age: ${friend.age}`}</p>

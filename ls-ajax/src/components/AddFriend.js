@@ -60,7 +60,7 @@ class AddFriend extends Component {
             return;
         }
         const data = {
-            index: parseInt(this.state.index),
+            index: this.state.index,
             update: {
                 name: this.state.name,
                 age: this.state.age,
@@ -78,7 +78,8 @@ class AddFriend extends Component {
 
     deleteFriend = (e) => {
         e.preventDefault();
-        this.props.dispatch(deleteFriend());
+        if (!this.state.index) return;
+        this.props.dispatch(deleteFriend(this.state.index));
         this.setState({
             name: '',
             age: '',
