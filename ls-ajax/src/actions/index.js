@@ -29,8 +29,12 @@ export const updateFriend = (friendData) => {
     };
 };
 
-export const deleteFriend = () => {
-    const promise = axios.delete('http://localhost:5000/delete-friend');
+export const deleteFriend = (index) => {
+    const promise = axios.delete('http://localhost:5000/delete-friend', {
+        data: {
+            index
+        }
+    });
     return {
         type: DELETE_FRIEND,
         payload: promise
