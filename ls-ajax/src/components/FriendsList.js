@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { getFriends } from '../actions';
 import Friend from './Friend';
 
@@ -28,8 +27,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
-   return bindActionCreators({ getFriends }, dispatch); 
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(FriendsList);
+export default connect(mapStateToProps, { getFriends })(FriendsList);

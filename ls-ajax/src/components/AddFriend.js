@@ -45,7 +45,7 @@ class AddFriend extends Component {
             age: this.state.age,
             email: this.state.email
         };
-        this.props.dispatch(addFriend(newFriend));
+        this.props.addFriend(newFriend);
         this.setState({
             name: '',
             age: '',
@@ -67,7 +67,7 @@ class AddFriend extends Component {
                 email: this.state.email
             }
         };
-        this.props.dispatch(updateFriend(data));
+        this.props.updateFriend(data);
         this.setState({
             name: '',
             age: '',
@@ -79,7 +79,7 @@ class AddFriend extends Component {
     deleteFriend = (e) => {
         e.preventDefault();
         if (!this.state.index) return;
-        this.props.dispatch(deleteFriend(this.state.index));
+        this.props.deleteFriend(this.state.index);
         this.setState({
             name: '',
             age: '',
