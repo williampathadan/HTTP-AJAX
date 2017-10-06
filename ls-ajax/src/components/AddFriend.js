@@ -103,4 +103,4 @@ class AddFriend extends Component {
     }
 }
 
-export default connect()(AddFriend);
+export default connect(null, { addFriend, updateFriend, deleteFriend })(AddFriend);
