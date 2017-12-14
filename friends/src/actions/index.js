@@ -49,8 +49,12 @@ export const deleteFriend = (index) => {
 
   const apiEndpoint = "http://localhost:5000/delete-friend";  
   const promise = axios.delete(apiEndpoint, {
-    index
+    data: {
+      index
+    }
   });
+
+  console.log(index);
 
   return {
     type: DELETE_FRIEND,

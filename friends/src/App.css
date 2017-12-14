@@ -1,0 +1,8 @@
+.App {
+  text-align: center;
+}
+.FriendsList > h1 {
+  max-width: 800px;
+  color: #0096ff;
+  margin: 50px auto;
+}

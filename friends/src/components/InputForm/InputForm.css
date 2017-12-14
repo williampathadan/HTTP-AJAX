@@ -1,0 +1,42 @@
+form {
+  max-width: 800px;
+  margin: 0px auto 50px auto;
+}
+form > .inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px 0px;
+}
+form > .inputs > input {
+  width: calc(100% / 3);
+  font-size: 18px;
+  padding: 15px;
+  margin: 0px 3px;
+  border: 0px;
+  border-radius: 3px;
+  background-color: #eee;
+}
+form > .inputs > input:nth-child(1) {
+  width: 40%;
+}
+form > .inputs > input:nth-child(2) {
+  width: 40%;
+}
+form > .inputs > input:nth-child(3) {
+  width: 20%;
+}
+form > input[type="submit"] {
+  width: calc(100% - 5px);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 15px;
+  border: 0px;
+  border-radius: 3px;
+  background-color: rgb(25, 121, 231);
+  cursor: pointer;
+}
+form > input[type="submit"]:hover {
+  background-color: rgb(12, 99, 192);
+}
